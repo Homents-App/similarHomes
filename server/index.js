@@ -52,18 +52,20 @@ app.post('/api/new-posting', (req, res) => {
   var name = req.body.name;
   delete req.body.name;
   var properties = req.body;
-  db.addHome(name, properties);
+  db.addHome(name, properties, (message) => res.send(message));
 })
 
 
 app.delete('/api/remove-posting', (req, res) => {
   console.log('body of delete request: ', req.body);
-  db.deleteHome();
+  db.deleteHome(req.body, (message) => res.send(message));
 })
 
 app.put('/api/update-posting', (req, res) => {
   console.log('body of put request: ', req.body);
-  db.updateHome();
+  var filter = req.body.filter;
+  var change = req.body.change;
+  db.updateHome(filter, change, (message) => res.send(message));
 })
 
 

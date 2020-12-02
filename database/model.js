@@ -47,11 +47,13 @@ const addOrRemoveFavorite = (value) => {
 
 
 ///////// NEW FUNCTIONS BY ZACH ////////////
-const deleteHome = () => {
-  SimilarHome.deleteOne()
+const deleteHome = (params, cb) => {
+  SimilarHome.deleteOne(params)
+  .then((results) => cb(results))
+  .catch((err) => cb(err))
 }
 
-const addHome = (name, properties) => {
+const addHome = (name, properties, cb) => {
   console.log('name: ', name, ' Properties: ', properties);
   name = new SimilarHome(properties);
   name.save(function(err, name) {
@@ -59,13 +61,16 @@ const addHome = (name, properties) => {
       return console.error(err);
     } else {
       console.log('successful write!')
+      cb(name);
     }
 
   })
 }
 
-const updateHome = () => {
-  SimilarHome.updateOne()
+const updateHome = (filter, home, cb) => {
+  SimilarHome.updateOne(filter, home)
+  .then((message) => cb(message))
+  .catch((err) => cb(err))
 }
 
 
