@@ -14,7 +14,8 @@
     "seed": "node database/seed.js",
     "test": "jest --coverage",
     "production": "pm2 start server/index.js",
-    "login": "bash login.sh"
+    "login": "bash login.sh",
+    "start:dev": "nodemon server/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
