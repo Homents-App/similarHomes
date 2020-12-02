@@ -47,16 +47,25 @@ const addOrRemoveFavorite = (value) => {
 
 
 ///////// NEW FUNCTIONS BY ZACH ////////////
-const deleteOne = () => {
-
+const deleteHome = () => {
+  SimilarHome.deleteOne()
 }
 
-const addOne = () => {
+const addHome = (name, properties) => {
+  console.log('name: ', name, ' Properties: ', properties);
+  name = new SimilarHome(properties);
+  name.save(function(err, name) {
+    if (err) {
+      return console.error(err);
+    } else {
+      console.log('successful write!')
+    }
 
+  })
 }
 
-const updateOne = () => {
-
+const updateHome = () => {
+  SimilarHome.updateOne()
 }
 
 
@@ -65,3 +74,6 @@ module.exports.deleteAll = deleteAll;
 module.exports.fetchSimilarHomes = fetchSimilarHomes;
 module.exports.fetchNewListings = fetchNewListings;
 module.exports.addOrRemoveFavorite = addOrRemoveFavorite;
+module.exports.addHome = addHome;
+module.exports.deleteHome = deleteHome;
+module.exports.updateHome = updateHome;

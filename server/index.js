@@ -49,18 +49,21 @@ app.post('/api/similar-homes/favorites', (req, res) => {
 ////// NEW ROUTES BY ZACH ///////
 app.post('/api/new-posting', (req, res) => {
   console.log('body of new post request', req.body);
-  db.addOne();
+  var name = req.body.name;
+  delete req.body.name;
+  var properties = req.body;
+  db.addHome(name, properties);
 })
 
 
 app.delete('/api/remove-posting', (req, res) => {
   console.log('body of delete request: ', req.body);
-  db.deleteOne();
+  db.deleteHome();
 })
 
 app.put('/api/update-posting', (req, res) => {
   console.log('body of put request: ', req.body);
-  db.updateOne();
+  db.updateHome();
 })
 
 
