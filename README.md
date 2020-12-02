@@ -27,6 +27,27 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+CRUD Operations
+- C
+  API - '/api/new-posting'
+  Obj - name: name of property,
+        key: value pairs for properties to be added
+  Database Operation - .save()
+- R
+  API - '/api/similar-homes'
+  Database Operation - .find()
+- U
+  API - '/api/update-posting'
+  Obj - filter: Obj with key: value
+      identifier for doc to be updated
+      change: Obj with key: value identifier for updates to be made
+  Database Operation - .updateOne()
+- D
+  API - '/api/remove-posting'
+  Obj - key: value pair identifying the doc to be deleted.
+  Database Operation - .deleteOne()
+
+
 ### Installing Dependencies
 
 From within the root directory:
