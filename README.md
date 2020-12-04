@@ -48,6 +48,49 @@ CRUD Operations
   Database Operation - .deleteOne()
 
 
+
+
+CASSANDRA SETUP
+Installation
+For the installation of Apache Cassandra the Latest stable version that is available now is 3.11 and the 4.0 is in beta state , so we’ll be installing 3.11 in this blog post.
+Apache Cassandra 3.11 require python and jdk8 installed in your computer.
+I hope you’ll be having Homebrew installed with you .
+
+Check your python installation
+python --version
+
+Upgrade your Python 2 version
+pip install --upgrade pip setuptools
+
+For installation of Jdk8
+brew cask install java
+
+As there are many use cases of older version , so we’ll be using AdoptOpenJdk
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+Now how to set jdk 8 as default jdk
+We type following command to find all the jdk version available
+/usr/libexec/java_home -V
+Image for post
+Pick the version that you want to make default
+Here in the above terminal 1.8.0_201 is a version
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_201`
+Now when you will type
+java -version
+You will be getting updated jdk version as default
+Image for post
+Output that you’ll get
+Now coming to our final step of installing Cassandra
+brew install cassandra
+Now starting Cassandra
+cassandra -f
+Open new Terminal Tab and type
+cqlsh
+
+
+
+
+
 ### Installing Dependencies
 
 From within the root directory:
