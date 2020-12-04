@@ -1,3 +1,4 @@
 node_modules
 config.js
 fec-similar-homes.pem
+*.csv
