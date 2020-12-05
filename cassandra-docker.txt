@@ -20,8 +20,8 @@ docker exec -ti 74923c2a95ce cqlsh localhost;
 
 
 // get count of columns
-select count(*) from homes limit 1000000
-
+select count(*) from homes limit 100000000;
+SELECT * FROM homes WHERE unique_id=9999999;
 
 // access the root of the container
 docker exec -ti c880a6f41db2 ls

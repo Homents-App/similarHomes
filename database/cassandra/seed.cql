@@ -1,11 +1,6 @@
 
 COPY homes FROM 'homes100.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 
-
-
-
-
-
 COPY homes FROM 'homes200.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 
 COPY homes FROM 'homes300.csv' WITH DELIMITER=',' AND HEADER=TRUE;

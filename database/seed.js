@@ -3,7 +3,7 @@ const faker = require('faker');
 const dataFormat = require('./utils/dataFormat.js')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
-  path: 'homes1000.csv',
+  path: 'homes.csv',
   header: [
     {id: 'unique_id', title: 'unique_id'},
     {id: 'bathrooms', title: 'bathrooms'},
@@ -70,7 +70,7 @@ const populate = function() {
 
   const priceChanges = ['+', '-', 'x', 'y', 'z']
 
-    for (let i = 9000000; i < 10000000; i++) {
+    for (let i = 0; i < 10000000; i++) {
 
       const fakeHome = {
         unique_id: i,
