@@ -1,0 +1,32 @@
+
+// To connect to postgres
+
+psql -U postgres
+
+
+// To use a database
+
+\c similarhomes
+
+// To quit postgres
+
+\q
+
+// To list all databases in postgres
+
+\l
+
+// List all tables in a current database
+
+\dt
+
+// Get detailed information on a table.
+
+\d+ table_name
+
+
+
+
+// To seed database:
+
+COPY homes FROM '/Users/ZachMcCain/HackReactor/coding/sdc/similarHomes/homes0.csv' WITH (FORMAT csv);

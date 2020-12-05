@@ -1,24 +1,24 @@
 const faker = require('faker');
-const db = require('./model.js');
+// const db = require('./model.js');
 const dataFormat = require('./utils/dataFormat.js')
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
-  path: 'homes0.csv',
+  path: 'homes1000.csv',
   header: [
     {id: 'unique_id', title: 'unique_id'},
-    {id: 'streetAddress', title: 'streetAddress'},
-    {id: 'state', title: 'state'},
-    {id: 'zipcode', title: 'zipcode'},
-    {id: 'neighborhood', title: 'neighborhood'},
-    {id: 'city', title: 'city'},
-    {id: 'bedrooms', title: 'bedrooms'},
     {id: 'bathrooms', title: 'bathrooms'},
-    {id: 'sqft', title: 'sqft'},
-    {id: 'publishDate', title: 'publishDate'},
+    {id: 'bedrooms', title: 'bedrooms'},
+    {id: 'city', title: 'city'},
+    {id: 'img_url', title: 'img_url'},
+    {id: 'neighborhood', title: 'neighborhood'},
+    {id: 'onFavorites', title: 'onFavorites'},
     {id: 'price', title: 'price'},
     {id: 'priceChange', title: 'priceChange'},
-    {id: 'onFavorites', title: 'onFavorites'},
-    {id: 'img_url', title: 'img_url'},
+    {id: 'publishDate', title: 'publishDate'},
+    {id: 'sqft', title: 'sqft'},
+    {id: 'state', title: 'state'},
+    {id: 'streetAddress', title: 'streetAddress'},
+    {id: 'zipcode', title: 'zipcode'}
   ]
 })
 
@@ -70,7 +70,7 @@ const populate = function() {
 
   const priceChanges = ['+', '-', 'x', 'y', 'z']
 
-    for (let i = 0000000; i < 1000000; i++) {
+    for (let i = 9000000; i < 10000000; i++) {
 
       const fakeHome = {
         unique_id: i,

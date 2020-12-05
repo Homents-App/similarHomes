@@ -1,3 +1,54 @@
-login:
+// Start cassandra
+cassandra -f
+
+// open a separate terminal
+// to login:
 cqlsh
 
+
+
+
+
+
+
+
+uninstall Java
+
+wipe cassandra
+
+
+
+
+
+
+
+brew uninstall cassandra
+rm -rf
+
+
+
+Cassandra Setup
+Install homebrew if on Mac OS (other OS you have to find out how to install it on your own)
+Check your python installation:
+python --version
+If you don't have it, install it:
+brew install python
+You will need Java as well:
+brew cask install homebrew/cask-versions/adoptopenjdk8
+We'll use AdoptOpenJdk:
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+Type the following command to find all jdk versions:
+/usr/libexec/java_home -V
+Pick the version to make default with the following script:
+export JAVA_HOME=`/usr/libexec/java_home -v <version number>`
+To see the jdk version:
+java -version
+Now you can finally install Cassandra:
+brew install cassandra
+Start Cassandra:
+cassandra -f
+Open a new terminal tab and type:
+cqlsh
+9:09
+I don't know if the AdoptOpenJdk step is necessary, but just run it anyways

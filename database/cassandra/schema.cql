@@ -4,7 +4,7 @@ with replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
 USE similarhomes;
 
 CREATE TABLE homes(
-  id INT PRIMARY KEY,
+  unique_id INT PRIMARY KEY,
   streetAddress text,
   state text,
   zipcode text,
@@ -13,7 +13,7 @@ CREATE TABLE homes(
   bedrooms INT,
   bathrooms INT,
   sqft INT,
-  publishDate DATE,
+  publishDate text,
   price text,
   priceChange text,
   onFavorites BOOLEAN,

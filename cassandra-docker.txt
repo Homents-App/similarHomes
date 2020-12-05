@@ -1,0 +1,38 @@
+
+// Build the docker container with the name of the container
+// This will execute the dockerfile in the process of building the image.
+docker build -t my-cassandra .
+
+// Run the docker container
+docker run -d -p 9042:9042 -v /data/my-cassandra:/var/lib/cassandra my-cassandra
+
+
+(show all docker images)
+docker image ls
+
+
+(shows whats running)
+docker ps
+
+
+(get into cql shell)
+docker exec -ti c880a6f41db2 cqlsh localhost;
+
+
+
+// access the root of the container
+docker exec -ti c880a6f41db2 ls
+
+// cool command
+docker stats (container id)
+
+
+
+
+// 5432 is default for postgres
+docker run -p 5432:5432 -d \
+    -e POSTGRES_PASSWORD=postgres \
+    -e POSTGRES_USER=postgres \
+    -e POSTGRES_DB=sdc_carousel \
+    -v pgdata:/var/lib/postgresql/data \
+    postgres
