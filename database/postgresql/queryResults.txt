@@ -1,0 +1,73 @@
+///////////////////////////////////////
+/////////////////  CRUD  //////////////
+///////////////////////////////////////
+
+CREATE:
+INSERT INTO homes(unique_id, streetAddress, state, zipcode, neighborhood, city, bedrooms, bathrooms, sqft, publishDate, price, priceChange, onFavorites, img_url) VALUES (10000001, '1212 Hello', 'AZ', '33224', 'Chelsea', 'Tucson', 4, 2, 2000, 'June 15 2020', '$404000', '$2355', true, 'http://www.google.com');
+
+READ:
+SELECT * FROM homes AS h WHERE h.unique_id=8888888;
+
+UPDATE:
+UPDATE homes SET onFavorites=false, price=450000 WHERE unique_id=8888888;
+
+DELETE:
+DELETE FROM homes WHERE unique_id=10000001;
+
+
+
+
+CREATE  *********************************
+
+similarhomes=# INSERT INTO homes(unique_id, streetAddress, state, zipcode, neighborhood, city, bedrooms, bathrooms, sqft, publishDate, price, priceChange, onFavorites, img_url) VALUES (10000001, '1212 Hello', 'AZ', '33224', 'Chelsea', 'Tucson', 4, 2, 2000, 'June 15 2020', '$404000', '$2355', true, 'http://www.google.com');
+INSERT 0 1
+Time: 5.230 ms
+
+
+similarhomes=# INSERT INTO homes(unique_id, streetAddress, state, zipcode, neighborhood, city, bedrooms, bathrooms, sqft, publishDate, price, priceChange, onFavorites, img_url) VALUES (10000001, '1212 Hello', 'AZ', '33224', 'Chelsea', 'Tucson', 4, 2, 2000, 'June 15 2020', '$404000', '$2355', true, 'http://www.google.com');
+INSERT 0 1
+Time: 3.845 ms
+
+
+READ  ***********************************
+
+similarhomes=# SELECT * FROM homes AS h WHERE h.unique_id=8888888;
+ unique_id |   streetaddress    | state | zipcode | neighborhood |   city   | bedrooms | bathrooms | sqft |                        publishdate                        |   price    | pricechange | onfavorites |                            img_url
+-----------+--------------------+-------+---------+--------------+----------+----------+-----------+------+-----------------------------------------------------------+------------+-------------+-------------+----------------------------------------------------------------
+   8888888 | 28472 Enoch Valley | CA    | 71296   | Last Hearth  | Ramsgate |        2 |         2 | 1362 | Fri Jun 05 2020 18:45:27 GMT-0500 (Central Daylight Time) | $1,216,621 | x           | f           | https://house-photos-sdc-hrr49.s3.amazonaws.com/photos/607.jpg
+(1 row)
+
+Time: 23.897 ms
+
+
+
+similarhomes=# SELECT * FROM homes AS h WHERE h.unique_id=8888864;
+ unique_id |     streetaddress      | state | zipcode | neighborhood |   city    | bedrooms | bathrooms | sqft |                        publishdate                        |   price    | pricechange | onfavorites |                            img_url
+-----------+------------------------+-------+---------+--------------+-----------+----------+-----------+------+-----------------------------------------------------------+------------+-------------+-------------+----------------------------------------------------------------
+   8888864 | 3826 Gusikowski Shoals | CA    | 34508   | Hornwood     | Dreadfort |        1 |         1 |  894 | Thu Mar 05 2020 11:40:35 GMT-0600 (Central Standard Time) | $1,879,200 | x           | f           | https://house-photos-sdc-hrr49.s3.amazonaws.com/photos/210.jpg
+(1 row)
+
+Time: 1.138 ms
+
+
+UPDATE  *********************************
+
+similarhomes=# UPDATE homes SET onFavorites=false, price=450000 WHERE unique_id=8888888;
+UPDATE 1
+Time: 12.130 ms
+
+
+similarhomes=# UPDATE homes SET onFavorites=false, price=450000 WHERE unique_id=8888342;
+UPDATE 1
+Time: 15.422 ms
+
+
+DELETE  *********************************
+
+similarhomes=# DELETE FROM homes WHERE unique_id=10000001;
+DELETE 1
+Time: 1.525 ms
+
+similarhomes=# DELETE FROM homes WHERE unique_id=10000001;
+DELETE 1
+Time: 10.564 ms

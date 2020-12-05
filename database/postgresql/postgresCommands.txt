@@ -26,6 +26,26 @@ psql -U postgres
 
 
 
+// To toggle showing the time queries take
+\timing
+
+
+///////////////////////////////////////
+/////////////////  CRUD  //////////////
+///////////////////////////////////////
+
+CREATE:
+INSERT INTO homes(unique_id, streetAddress, state, zipcode, neighborhood, city, bedrooms, bathrooms, sqft, publishDate, price, priceChange, onFavorites, img_url) VALUES (10000001, '1212 Hello', 'AZ', '33224', 'Chelsea', 'Tucson', 4, 2, 2000, 'June 15 2020', '$404000', '$2355', true, 'http://www.google.com');
+
+READ:
+SELECT * FROM homes AS h WHERE h.id=8888888;
+
+UPDATE:
+UPDATE homes SET onFavorites=false, price=450000 WHERE id=8888888;
+
+DELETE:
+DELETE FROM homes WHERE id=10000001;
+
 
 // To seed database:
 

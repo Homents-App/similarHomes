@@ -19,6 +19,11 @@ docker ps
 docker exec -ti 74923c2a95ce cqlsh localhost;
 
 
+// Turn on timing
+TIMING ON
+
+
+
 // get count of columns
 select count(*) from homes limit 100000000;
 SELECT * FROM homes WHERE unique_id=9999999;
