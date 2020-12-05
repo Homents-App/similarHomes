@@ -16,8 +16,11 @@ docker ps
 
 
 (get into cql shell)
-docker exec -ti c880a6f41db2 cqlsh localhost;
+docker exec -ti 74923c2a95ce cqlsh localhost;
 
+
+// get count of columns
+select count(*) from homes limit 1000000
 
 
 // access the root of the container
