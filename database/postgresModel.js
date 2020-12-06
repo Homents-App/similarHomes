@@ -9,7 +9,7 @@ const pool = new Pool({
 })
 
 pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
+  console.log('Connected to pool');
 })
 
 

@@ -24,7 +24,9 @@ psql -U postgres
 
 \d+ table_name
 
-
+// Import schema file from postgres shell
+\i path/to/schema/file.sql
+\i database/postgresql/schema.sql
 
 // To toggle showing the time queries take
 \timing
