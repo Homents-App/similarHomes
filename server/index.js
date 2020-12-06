@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const db = require('../database/model.js');
+const db = require('../database/postgresQueries.js');
 
 const PORT = 3001;
 
@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 // Fetches homes for the similar homes slider
 app.get('/api/similar-homes', (req, res) => {
   db.fetchSimilarHomes()
-  .then(result => res.status(200).send(result))
+  .then(result => res.status(200).send(result.rows))
   .catch(err => {
     console.log(err);
     res.status(400).send(err);
@@ -27,7 +27,8 @@ app.get('/api/similar-homes', (req, res) => {
 // Fetches homes for the listings near address slider
 app.get('/api/new-listings', (req, res) => {
   db.fetchNewListings()
-  .then(result => res.status(200).send(result))
+  .then(result => {
+    res.status(200).send(result.rows)})
   .catch(err => {
     console.log(err);
     res.status(400).send(err);

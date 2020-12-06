@@ -18,7 +18,10 @@ class App extends React.Component {
 
   componentDidMount() {
     axios.get('/api/similar-homes')
-    .then(data => data.data)
+    .then(data => {
+      console.log('data from component', data);
+      return data.data
+    })
     .then(data => {
       this.setState({similarHomes: data});
     })
