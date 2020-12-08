@@ -3,3 +3,6 @@ config.js
 fec-similar-homes.pem
 *.csv
 .env
+newrelic.js
+newrelic_agent.log
+

@@ -15,7 +15,8 @@
     "test": "jest --coverage",
     "production": "pm2 start server/index.js",
     "login": "bash login.sh",
-    "start:dev": "nodemon server/index.js"
+    "start:dev": "nodemon server/index.js",
+    "stress": "k6 run stressTesting/stressScript.js"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
@@ -32,7 +33,9 @@
     "express": "^4.15.4",
     "faker": "^5.1.0",
     "fs": "0.0.1-security",
+    "k6": "0.0.0",
     "mongoose": "^5.10.13",
+    "newrelic": "^7.0.2",
     "pg": "^8.5.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",

@@ -1,0 +1,16 @@
+// To run testing script:
+npm run stress
+
+// Actual script:
+k6 run stressTesting/stressScript.js
+
+// To add more VUs (virtual users)
+k6 run --vus 10 --duration 30s stressTesting/stressScript.js
+
+// Can also set this as options in stressScript with
+export let options = {
+  vus: 10,
+  duration: '30s',
+};
+
+
