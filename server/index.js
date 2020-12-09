@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 // Fetches homes for the similar homes slider
-app.get('/api/similar-homes', (req, res) => {
+app.get('/api/similar-homes/:id', (req, res) => {
   db.fetchSimilarHomes()
   .then(result => res.status(200).send(result.rows))
   .catch(err => {
@@ -26,7 +26,7 @@ app.get('/api/similar-homes', (req, res) => {
 
 
 // Fetches homes for the listings near address slider
-app.get('/api/new-listings', (req, res) => {
+app.get('/api/new-listings/:id', (req, res) => {
   db.fetchNewListings()
   .then(result => {
     res.status(200).send(result.rows)})
@@ -49,7 +49,7 @@ app.post('/api/similar-homes/favorites', (req, res) => {
 
 
 ////// NEW ROUTES BY ZACH ///////
-app.post('/api/new-posting', (req, res) => {
+app.post('/api/new-posting/:id', (req, res) => {
   console.log('body of new post request', req.body);
   var name = req.body.name;
   delete req.body.name;
@@ -58,12 +58,12 @@ app.post('/api/new-posting', (req, res) => {
 })
 
 
-app.delete('/api/remove-posting', (req, res) => {
+app.delete('/api/remove-posting/:id', (req, res) => {
   console.log('body of delete request: ', req.body);
   db.deleteHome(req.body, (message) => res.send(message));
 })
 
-app.put('/api/update-posting', (req, res) => {
+app.put('/api/update-posting/:id', (req, res) => {
   console.log('body of put request: ', req.body);
   var filter = req.body.filter;
   var change = req.body.change;

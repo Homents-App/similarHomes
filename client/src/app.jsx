@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/similar-homes')
+    axios.get('/api/similar-homes/5')
     .then(data => {
       console.log('data from component', data);
       return data.data
@@ -25,7 +25,7 @@ class App extends React.Component {
     .then(data => {
       this.setState({similarHomes: data});
     })
-    axios.get('/api/new-listings')
+    axios.get('/api/new-listings/7')
     .then(data => data.data)
     .then(data => {
       this.setState({newListings: data});

@@ -25,6 +25,17 @@ const addOrRemoveFavorite = (value) => {
 }
 
 
+///////////// POST a new home to db
+const addHome = (name, properties, cb) => {
+  var query = 'INSERT INTO homes (unique_id, streetAddress, state, zipcode, neighborhood, city, bedrooms, bathrooms, sqft, publishDate, price, priceChange, onFavorites, img_url) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)';
+  var values = properties;
+  return pool.query(query, values)
+  .then((message) => cb(message))
+  .catch(err => console.log('error: ', err))
+}
+
+
+
 module.exports.fetchSimilarHomes = fetchSimilarHomes;
 module.exports.fetchNewListings = fetchNewListings;
 module.exports.addOrRemoveFavorite = addOrRemoveFavorite;
