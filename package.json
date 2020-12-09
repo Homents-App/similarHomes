@@ -16,7 +16,8 @@
     "production": "pm2 start server/index.js",
     "login": "bash login.sh",
     "start:dev": "nodemon server/index.js",
-    "stress": "k6 run stressTesting/stressScript.js"
+    "stress": "k6 run stressTesting/stressScript.js",
+    "fire": "artillery run stressTesting/stress.yml"
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
