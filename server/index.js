@@ -59,10 +59,10 @@ app.post('/api/new-posting', (req, res) => {
   var name = req.body.name;
   // delete req.body.name;
   var properties = req.body.properties;
-  console.log('Here are the props: ', properties);
+  // console.log('Here are the props: ', properties);
   db.addHome(name, properties)
   .then((message) => {
-    console.log('new posting message: ', message);
+    // console.log('new posting message: ', message);
     res.send(message)
   });
 })
@@ -75,7 +75,7 @@ app.delete('/api/remove-posting/:id', (req, res) => {
 })
 
 app.put('/api/update-posting/:id', (req, res) => {
-  console.log('body of put request: ', req.body);
+  // console.log('body of put request: ', req.body);
   var favorite = req.body.favorite;
   var id = req.params.id;
   db.updateHome(favorite, id)
