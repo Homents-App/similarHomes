@@ -4,19 +4,92 @@
 
 
 config:
-  target: "localhost:3001"
+  target: "http://localhost:3001"
   phases:
     - duration: 60
-    arrivalRate: 5
-    name: Warm up
+      arrivalRate: 1
+      name: Warm up
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 10
+      name: Ramp up load
     - duration: 120
-    arrivalRate: 5
-    rampTo: 50
-    name: Ramp up load
+      arrivalRate: 10
+      name: Sustained low load
+    - duration: 60
+      arrivalRate: 10
+      rampTo: 100
+      name: Ramp up load
     - duration: 120
-    arrivalRate: 50
-    name: Sustained load
+      arrivalRate: 100
+      name: Sustained med load
+    - duration: 60
+      arrivalRate: 100
+      rampTo: 1000
+      name: Ramp up max load
+    - duration: 300
+      arrivalRate: 1000
+      name: Sustained max load
+    - duration: 60
+      arrivalRate: 1000
+      rampTo: 10
+      name: Ramp down load
+    - duration: 60
+      arrivalRate: 10
+      name: Sustained recovery load
   variables:
+    id:
+      - "9998898"
+      - "6923492"
+      - "8582529"
+      - "7972009"
+      - "3432624"
+    boolean:
+      - true
+      - false
+scenarios:
+  - name: "Grab late home"
+    flow:
+      - get:
+          url: "/api/new-listings-by-id/8993924"
+  - name: "Update a home"
+    flow:
+      - put:
+          url: "/api/update-posting/7884532"
+          "json": {
+            "favorite": "true"
+          }
+  - name: "Grab early home"
+    flow:
+      - get:
+         url: "/api/new-listings-by-id/1020"
+  - name: "Grab late home"
+    flow:
+      - get:
+          url: "/api/new-listings-by-id/9993924"
+  - name: "Post a home"
+    flow:
+      - post:
+          url: "/api/new-posting"
+          "json": {
+            "name": "stuff",
+            "properties": [
+              234234323,
+              "3756 Opal Crossroad",
+              "CA",
+              "89661",
+              "Last Hearth",
+              "Winterfell",
+              4,
+              1,
+              881,
+              "Thu Dec 26 2019 01:53:45 GMT-0600 (Central Standard Time)",
+              "$1,622,848",
+              "x",
+              false,
+              "https://www.amazon.com"
+            ]
+          }
 
 
 

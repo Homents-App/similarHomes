@@ -17,7 +17,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/similar-homes/5')
+    var path = window.location.pathname;
+    var id = path.slice(1);
+    axios.get(`/api/similar-homes/${id}`)
     .then(data => {
       console.log('data from component', data);
       return data.data
@@ -25,7 +27,7 @@ class App extends React.Component {
     .then(data => {
       this.setState({similarHomes: data});
     })
-    axios.get('/api/new-listings/7')
+    axios.get(`/api/new-listings/${id}`)
     .then(data => data.data)
     .then(data => {
       this.setState({newListings: data});
